@@ -4,11 +4,26 @@
     </head>
     <body>
         <div id="app">
+            <hr>
+            <br>
             <button @click="decrement">-</button>
             {{ value }}
             <button @click="increment">+</button>
+            <br>
+            <hr>
+            <br>
+            <br>
+            <p>Hello {{ username }}</p>
+            <br>
+            <input type="text" v-model="username">
+            <br>
+            <button @click="submit">Submit</button>
+            <div class="user" v-for="user in users">
+                <p>Users: {{ user.username }}</p>
+            </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
         <script src="app.js"></script>
+        <link href="style.css" rel="stylesheet">
     </body>
 </html>
