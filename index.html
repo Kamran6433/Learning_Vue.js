@@ -22,6 +22,24 @@
                 <p>Users: {{ user.username }}</p>
             </div>
         </div>
+        <div id="app2">
+            <span v-bind:title="message">
+                Hover your mouse over me for a few seconds to see my dynamically bound title!
+            </span>
+            <hr>
+            <br>
+            <add-component></add-component>
+            <add-component></add-component>
+            <br>
+            <hr>
+        </div>
+        <div id="app3">
+            <span v-if="seen">Now you see me</span>
+        </div>
+        <div id="app4">
+            <p>{{ message }}</p>
+            <button v-on:click="reverseMessage">Click me to reverse the message above</button>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
         <script src="app.js"></script>
         <link href="style.css" rel="stylesheet">
