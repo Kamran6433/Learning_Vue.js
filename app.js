@@ -1,5 +1,21 @@
 Vue.component('add-component', {
-    template: '<li>This is a component called by add-component in the HTML. I am reusable.</li>'
+    template: '<li>This is a component called by add-component in the HTML. Its very simple as all it does is render a list item. I am reusable.</li>'
+});
+
+Vue.component('complex-component', {
+    props: ['todo'],
+    template: '<li>{{ todo.text }}</li>'
+});
+
+var app5 = new Vue({
+    el: '#app5',
+    data: {
+        groceryList: [
+            { id: 0, text: 'Vegetables' },
+            { id: 1, text: 'Cheese' },
+            { id: 2, text: 'Whatever else humans are supposed to eat' }
+        ]
+    }
 });
 
 
