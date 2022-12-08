@@ -5,3 +5,18 @@
     padding: 20px;
     margin: 5px;
 }
+
+#for-loop-example {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+    margin: 5px;
+}
+
+.demo {
+    margin: 10px;
+    padding: 50px;
+    background-color: teal;
+    color: goldenrod;
+}

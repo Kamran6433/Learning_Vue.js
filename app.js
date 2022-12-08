@@ -11,13 +11,12 @@ var app5 = new Vue({
     el: '#app5',
     data: {
         groceryList: [
-            { id: 0, text: 'Vegetables' },
-            { id: 1, text: 'Cheese' },
-            { id: 2, text: 'Whatever else humans are supposed to eat' }
+            { id: 0, text: 'This is me!' },
+            { id: 1, text: 'Dont forget me >:/' },
+            { id: 2, text: 'You shall not pass!!' }
         ]
     }
 });
-
 
 var app = new Vue({
     el: '#app',
@@ -70,4 +69,48 @@ var app4 = new Vue({
             this.message = this.message.split('').reverse().join('')
         }
     } 
+});
+
+var hello = new Vue({
+    el: '#hello',
+    data: {
+        styleObject: {
+            color: 'red',
+            fontSize: '100px',
+        }
+    }
+});
+
+var example1 = new Vue({
+    el: '#for-loop-example',
+    data: {
+        why: 'Why?',
+        cars: [
+            { message: 'BMW' },
+            { message: 'Mercedes' },
+            { message: 'Tesla' },
+            { message: 'Lamborghini' }
+        ]
+    }
+});
+
+var vvv = new Vue({
+    el:'#v-for-object',
+    data() {
+        return {
+            object: {
+                title: 'Hello World',
+                author: 'Kamran Ahmed',
+                integer: 123,
+                boolean: true,
+                float: 99.9999999,
+                char: '\''
+            }
+        }
+    },
+    methods: {
+        remove(name) {
+            vvv.$delete(vvv.object, name)
+        }
+    }
 });
