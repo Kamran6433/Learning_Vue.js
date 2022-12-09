@@ -29,6 +29,12 @@ var app = new Vue({
                 {username: 'Dayyan'},
                 {username: 'Haider'},
                 {username: 'Travis'}
+            ],
+            todos: [
+                'Clean Room',
+                'Learn Vue.js',
+                'Study for exams',
+                'Learn Vue.js again'
             ]
         }
     },
@@ -41,6 +47,9 @@ var app = new Vue({
         },
         submit() {
             console.log(this.username);
+        },
+        removeTodo() {
+            app.todos.pop()
         }
     }
 });
@@ -112,5 +121,46 @@ var vvv = new Vue({
         remove(name) {
             vvv.$delete(vvv.object, name)
         }
+    }
+});
+
+var WHAT = new Vue({
+    el: '#WHAT',
+    data: {
+        numbers: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    },
+    computed: {
+        oddNumbers: function() {
+            return this.numbers.filter(function(number) {
+                return number % 2 === 1
+            })
+        }
+    }
+});
+
+var counter = new Vue({
+    el: '#counter',
+    data: {
+        counter: 0
+    }
+});
+
+var greeting = new Vue({
+    el: '#greeting',
+    methods: {
+        say(message) {
+            alert(message)
+        },
+        submit() {
+            console.log('You have pressed enter.')
+        }
+    }
+});
+
+var check = new Vue({
+    el: '#check',
+    data: {
+        checkedNames: [],
+        selected: ''
     }
 });
