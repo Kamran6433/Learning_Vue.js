@@ -17,6 +17,9 @@
 .demo {
     margin: 10px;
     padding: 50px;
-    background-color: teal;
+    background-color: #100E09;
     color: goldenrod;
+}
+#OUT {
+    font-family: Arial, Helvetica, sans-serif;
 }

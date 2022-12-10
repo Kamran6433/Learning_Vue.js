@@ -3,124 +3,148 @@
         <title>Kamran is Awesome at programming</title>
     </head>
     <body>
-        <div id="app">
-            <ul v-if="todos.length">
-                <li v-for="todo in todos">
-                  {{ todo }}
+        <div id="OUT">
+            <div class="title">
+                <blog-post title="My journey with Vue"></blog-post>
+            </div>
+                <div id="app">
+                <ul v-if="todos.length">
+                    <li v-for="todo in todos">
+                    {{ todo }}
+                    </li>
+                </ul>
+                <button v-on:click="removeTodo">POP Todo</button>
+                <!-- The button blocks the else statement from connecting to the if statement. -->
+                <!-- <p v-else>No todos left!</p> -->
+                <hr>
+                <br>
+                <button @click="decrement">-</button>
+                {{ value * 10 }}
+                <button @click="increment">+</button>
+                <br>
+                <hr>
+                <br>
+                <div class="title">
+                    <blog-post title="Blogging with Vue"></blog-post>
+                </div>
+                <!-- <p>Using mustaches: {{ rawHtml }}</p> -->
+                <!-- <p>Using v-html directive: <span v-html="rawHtml"></span></p> -->
+                <br>
+                <p>Hello {{ username ? username : 'No username' }}</p>
+                <br>
+                <input type="text" v-model="username" placeholder="e.g. Name">
+                <br>
+                <button @click="submit">Submit</button>
+                <div class="user" v-for="user in users">
+                    <p>Users: {{ user.username }}</p>
+                </div>
+            </div>
+            <div id="app2">
+                <span v-bind:title="message">
+                    Hover your mouse over me for a few seconds to see my dynamically bound title!
+                </span>
+                <br>
+                <!-- <button v-bind:disabled="isButtonDisabled">Button is disabled</button> -->
+                <br>
+                <hr>
+                <br>
+                <add-component></add-component>
+                <add-component></add-component>
+                <br>
+                <hr>
+            </div>
+            <div id="app3">
+                <span v-if="seen">Now you see me</span>
+            </div>
+            <div id="app4">
+                <p>{{ message }}</p>
+                <button v-on:click="reverseMessage">Click me to reverse the message above</button>
+            </div>
+            <div id="app5">
+                <ol>
+                    <complex-component v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></complex-component>
+                </ol>
+            </div>
+            <div id="hello" v-bind:style="styleObject">Bonjour je ma'pelle Kamran.</div>
+            <div v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">Bonjour je ma'pelle Kamran. This needs rework.</div>
+            <h1 v-if="awesome">Vue is awesome!</h1>
+            <h1 v-else>Oh no 😢</h1>
+            <template v-if="awesome">
+                <h1>Title</h1>
+                <p>Paragraph 1</p>
+                <p>Paragraph 2</p>
+            </template>
+            <div v-if="Math.random() > 0.5=">
+                Now you see me
+            </div>
+            <div v-else>
+                Now you don't
+            </div>
+            <div id="check">
+                <input type="checkbox" id="jack" value="I" v-model="checkedNames">
+                <label for="jack">I</label>
+                <input type="checkbox" id="john" value="Like" v-model="checkedNames">
+                <label for="john">Hate</label>
+                <input type="checkbox" id="mike" value="Vue!" v-model="checkedNames">
+                <label for="mike">Procrastinating</label>
+                <br>
+                <span>Checked names: {{ checkedNames }}</span>
+                <br>
+                <select v-model="selected">
+                    <option disabled value="">Please Don't Select One, It doesn't do anything.</option>
+                    <option>React</option>
+                    <option>Vue</option>
+                    <option>Kamran</option>
+                    <option>TopGrad</option>
+                </select>
+                <br>
+                <span>Selected: {{ selected }}</span>
+            </div>
+            <ul id="for-loop-example">
+                <li v-for="(car, index) in cars" :key="car.message">
+                    Car {{ index }} - {{ car.message }} - {{ why }}
                 </li>
             </ul>
-            <button v-on:click="removeTodo">POP Todo</button>
-            <!-- The button blocks the else statement from connecting to the if statement. -->
-            <!-- <p v-else>No todos left!</p> -->
-            <hr>
+            <ul id="v-for-object" class="demo">
+                <li v-for="(element, name) in object">
+                    {{ name }}: {{ element }}
+                    <button v-on:click="remove(name)">Remove element Button</button>
+
+                </li>
+            </ul>
             <br>
-            <button @click="decrement">-</button>
-            {{ value * 10 }}
-            <button @click="increment">+</button>
-            <br>
-            <hr>
-            <br>
-            <!-- <p>Using mustaches: {{ rawHtml }}</p> -->
-            <!-- <p>Using v-html directive: <span v-html="rawHtml"></span></p> -->
-            <br>
-            <p>Hello {{ username ? username : 'No username' }}</p>
-            <br>
-            <input type="text" v-model="username" placeholder="e.g. Name">
-            <br>
-            <button @click="submit">Submit</button>
-            <div class="user" v-for="user in users">
-                <p>Users: {{ user.username }}</p>
+            <h2>Displaying filtered Arrays</h2>
+            <div id="WHAT">
+                <li v-for="n in oddNumbers">{{ n }}</li>
+            </div>
+            <div id="counter">
+                <button v-on:click="counter += 5">Add 5 to counter</button>
+                <p>The button above has been clicked {{ counter }} times.</p>
+            </div>
+            <div id="greeting">
+                <button v-on:click="say('Congratulations you have won an Iphone 14!')">Press me</button>
+                <button v-on:click="say('WHYYYYYYYY >:/')">Don't Press me</button>
+                <input v-on:keyup.enter="submit">
+            </div>
+            <!-- When listening for keyboard events, we can use v-on to listen for key events. -->
+            <a v-on:click.once="doThis">This can only be clicked once(v-on:click.once).</a>
+            <div id="components-demo">
+                <list-paste v-for="element in ListOfLanguagesIKnow" v-bind:id="element.id" v-bind:text="element.text"></list-paste>
+            </div>
+            <div id="fontsize-demo">
+                <div v-on:style="{ fontSize: postFontSize + 'em'}">
+                    <fontsize-demo
+                        v-for="post in posts"
+                        v-bind:key="post.id"
+                        v-bind:post="post"
+                        v-on:enlarge-text="postFontSize += 0.1"
+                    ></fontsize-demo>
+                    <button v-on:click="$emit('enlarge-text')">
+                        Enlarge text
+                    </button>
+                </div>
             </div>
         </div>
-        <div id="app2">
-            <span v-bind:title="message">
-                Hover your mouse over me for a few seconds to see my dynamically bound title!
-            </span>
-            <br>
-            <!-- <button v-bind:disabled="isButtonDisabled">Button is disabled</button> -->
-            <br>
-            <hr>
-            <br>
-            <add-component></add-component>
-            <add-component></add-component>
-            <br>
-            <hr>
-        </div>
-        <div id="app3">
-            <span v-if="seen">Now you see me</span>
-        </div>
-        <div id="app4">
-            <p>{{ message }}</p>
-            <button v-on:click="reverseMessage">Click me to reverse the message above</button>
-        </div>
-        <div id="app5">
-            <ol>
-                <complex-component v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></complex-component>
-            </ol>
-        </div>
-        <div id="hello" v-bind:style="styleObject">Bonjour je ma'pelle Kamran.</div>
-        <div v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">Bonjour je ma'pelle Kamran. This needs rework.</div>
-        <h1 v-if="awesome">Vue is awesome!</h1>
-        <h1 v-else>Oh no 😢</h1>
-        <template v-if="awesome">
-            <h1>Title</h1>
-            <p>Paragraph 1</p>
-            <p>Paragraph 2</p>
-        </template>
-        <div v-if="Math.random() > 0.5=">
-            Now you see me
-        </div>
-        <div v-else>
-            Now you don't
-        </div>
-        <div id="check">
-            <input type="checkbox" id="jack" value="I" v-model="checkedNames">
-            <label for="jack">I</label>
-            <input type="checkbox" id="john" value="Like" v-model="checkedNames">
-            <label for="john">Hate</label>
-            <input type="checkbox" id="mike" value="Vue!" v-model="checkedNames">
-            <label for="mike">Procrastinating</label>
-            <br>
-            <span>Checked names: {{ checkedNames }}</span>
-            <br>
-            <select v-model="selected">
-                <option disabled value="">Please Don't Select One, It doesn't do anything.</option>
-                <option>React</option>
-                <option>Vue</option>
-                <option>Kamran</option>
-                <option>TopGrad</option>
-            </select>
-            <br>
-            <span>Selected: {{ selected }}</span>
-        </div>
-        <ul id="for-loop-example">
-            <li v-for="(car, index) in cars" :key="car.message">
-                Car {{ index }} - {{ car.message }} - {{ why }}
-            </li>
-        </ul>
-        <ul id="v-for-object" class="demo">
-            <li v-for="(element, name) in object">
-                {{ name }}: {{ element }}
-                <button v-on:click="remove(name)">Remove element Button</button>
-
-            </li>
-        </ul>
-        <br>
-        <h2>Displaying filtered Arrays</h2>
-        <div id="WHAT">
-            <li v-for="n in oddNumbers">{{ n }}</li>
-        </div>
-        <div id="counter">
-            <button v-on:click="counter += 5">Add 5 to counter</button>
-            <p>The button above has been clicked {{ counter }} times.</p>
-        </div>
-        <div id="greeting">
-            <button v-on:click="say('Congratulations you have won an Iphone 14!')">Press me</button>
-            <button v-on:click="say('WHYYYYYYYY >:/')">Don't Press me</button>
-            <input v-on:keyup.enter="submit">
-        </div>
-        <!-- When listening for keyboard events, we can use v-on to listen for key events. -->
-        <a v-on:click.once="doThis">This can only be clicked once(v-on:click.once).</a>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
         <script src="app.js"></script>
         <link href="style.css" rel="stylesheet">

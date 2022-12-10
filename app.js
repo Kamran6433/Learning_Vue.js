@@ -1,11 +1,62 @@
+// HTML’s built-in input types won’t always meet your needs. 
+// Fortunately, Vue components allow you to build reusable 
+// inputs with completely customized behavior.
 Vue.component('add-component', {
     template: '<li>This is a component called by add-component in the HTML. Its very simple as all it does is render a list item. I am reusable.</li>'
 });
-
+// Components are reusable Vue instances with a name:
 Vue.component('complex-component', {
     props: ['todo'],
     template: '<li>{{ todo.text }}</li>'
 });
+
+Vue.component('blog-post', {
+    props: ['title'],
+    template: '<h1>{{ title }}</h1>'
+});
+
+Vue.component('fontsize-demo', {
+    props: ['post'],
+    template: `
+        <div class="fontsize-demo">
+            <h2>{{ post.title }}</h2>
+            <button v-on:click="$emit('enlarge-text')">
+                Enlarge text
+            </button>
+            <div v-html="post.content"></div>
+        </div>
+    `
+})
+
+new Vue({
+    el: '#fontsize-demo',
+    data: {
+        posts: [
+            { id: 1, title: 'Example Header'}
+        ],
+        postFontSize: 1
+    }
+});
+
+new Vue({ el: '.title' });
+
+Vue.component('list-paste', {
+    data: {
+        props: ['language'],
+        listOfLanguagesIKnow: [
+            { id: 1, text: 'Python' },
+            { id: 2, text:'C' },
+            { id: 3, text: 'JavaScript' },
+            { id: 4, text: 'Java' },
+            { id: 5, text: 'Vue.js' },
+            { id: 6, text: 'Bulma' },
+            { id: 7, text: 'Flask' }
+        ]
+    },
+    template: '<liOfLanguagesIKnow">{{ language.text }}</li>'
+});
+
+new Vue({ el: '#components-demo' });
 
 var app5 = new Vue({
     el: '#app5',
