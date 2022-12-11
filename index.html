@@ -132,19 +132,58 @@
                 <list-paste v-for="element in ListOfLanguagesIKnow" v-bind:id="element.id" v-bind:text="element.text"></list-paste>
             </div>
             <div id="fontsize-demo">
-                <div v-on:style="{ fontSize: postFontSize + 'em'}">
+                <div :style="{ fontSize: postFontSize + 'em' }">
                     <fontsize-demo
                         v-for="post in posts"
                         v-bind:key="post.id"
                         v-bind:post="post"
                         v-on:enlarge-text="postFontSize += 0.1"
                     ></fontsize-demo>
-                    <button v-on:click="$emit('enlarge-text')">
-                        Enlarge text
-                    </button>
                 </div>
             </div>
         </div>
+        <div id="custom-checkbox">
+            <custom-checkbox v-model="lovingVue">lovingVue</custom-checkbox>
+            <custom-checkbox v-model="EnjoyingTheJourney">EnjoyingTheJourney</custom-checkbox>
+        </div>
+        <a
+            v-bind:href="url"
+            class="nav-link"
+        >
+        <!-- Learn slots!! -->
+        <slot>
+            <navigation-link url="/profile">
+                <!-- Add a Font Awesome icon -->
+                <span class="fa fa-user"></span>
+                Your Profile
+            </navigation-link>
+        </slot>
+        </a>
+        <!-- <div class="container">
+            <header>
+                <slot name="header"></slot>
+            </header>
+            <main>
+                <slot></slot>
+            </main>
+            <footer>
+                <slot name="footer"></slot>
+            </footer>
+        </div>
+        <base-layout>
+            <template v-slot:header>
+                <h1>Here might be a page title</h1>
+            </template>
+
+            <template v-slot:default>
+                <p>A paragraph for the main content.</p>
+                <p>And another one.</p>
+            </template>
+
+            <template v-slot:footer>
+                <p>Here's some contact info</p>
+            </template>
+        </base-layout> -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
         <script src="app.js"></script>
         <link href="style.css" rel="stylesheet">

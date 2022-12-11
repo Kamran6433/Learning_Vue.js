@@ -21,18 +21,42 @@ Vue.component('fontsize-demo', {
         <div class="fontsize-demo">
             <h2>{{ post.title }}</h2>
             <button v-on:click="$emit('enlarge-text')">
-                Enlarge text
+                Enlarge the text
             </button>
             <div v-html="post.content"></div>
         </div>
     `
+});
+
+Vue.component('custom-checkbox', {
+    model: {
+        prop: 'checked',
+        event: 'change'
+    },
+    props: {
+        checked: Boolean,
+    },
+    template: `
+        <input
+            type="checkbox"
+            v-bind:checked="checked"
+            v-on:change="$emit('change', $event.target.checked)"
+        >
+    `
+});
+
+new Vue({
+    el: '#custom-checkbox'
 })
 
 new Vue({
     el: '#fontsize-demo',
     data: {
         posts: [
-            { id: 1, title: 'Example Header'}
+            { 
+            id: 1, 
+            title: 'Example Header' 
+            }
         ],
         postFontSize: 1
     }
@@ -41,17 +65,19 @@ new Vue({
 new Vue({ el: '.title' });
 
 Vue.component('list-paste', {
-    data: {
-        props: ['language'],
-        listOfLanguagesIKnow: [
-            { id: 1, text: 'Python' },
-            { id: 2, text:'C' },
-            { id: 3, text: 'JavaScript' },
-            { id: 4, text: 'Java' },
-            { id: 5, text: 'Vue.js' },
-            { id: 6, text: 'Bulma' },
-            { id: 7, text: 'Flask' }
-        ]
+    data() {
+        return {
+            props: ['language'],
+            listOfLanguagesIKnow: [
+                { id: 1, text: 'Python' },
+                { id: 2, text:'C' },
+                { id: 3, text: 'JavaScript' },
+                { id: 4, text: 'Java' },
+                { id: 5, text: 'Vue.js' },
+                { id: 6, text: 'Bulma' },
+                { id: 7, text: 'Flask' }
+            ]
+        }
     },
     template: '<liOfLanguagesIKnow">{{ language.text }}</li>'
 });
