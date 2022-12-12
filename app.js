@@ -45,6 +45,31 @@ Vue.component('custom-checkbox', {
     `
 });
 
+Vue.component('random-number-generator', {
+    props: ['newTopValue'],
+    template: `
+        <code><h2>Random Number Generator <br>
+        <code>{{ randomNumber }}</code> <br>
+        <button v-on:click="generateNumber">Click me to generate a random number from 0 to {{ topValue }}</button>
+        </h2><br>
+        <input type="text" v-model="topValue" placeholder="top value">
+        </code>
+    `,
+    data() {
+        return {
+            randomNumber: 0,
+            topValue: 100
+        }
+    },
+    methods: {
+        generateNumber() {
+            this.randomNumber = Math.floor(Math.random() * this.topValue)
+        }
+    }
+});
+
+new Vue({ el: '#random' });
+
 new Vue({
     el: '#custom-checkbox'
 })

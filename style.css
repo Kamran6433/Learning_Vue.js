@@ -20,6 +20,29 @@
     background-color: #100E09;
     color: goldenrod;
 }
+
 #OUT {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+#random {
+    border: 2px solid #100E09;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+body {
+    background-color: #fafafa;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, #f8f9fa, rgb(237, 237, 237));
+    z-index: -1;
 }
