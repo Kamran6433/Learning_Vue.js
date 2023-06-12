@@ -197,7 +197,7 @@
         </div>
 
         <div id="stylinggg">
-            <div v-bind:style="styleObject">Styling with Vue (You can change my colour and font size)</div>
+            <div v-bind:style="styleObject">Styling with Vue (You can change my {{ color ? color : "colour" }} and font {{ fontSize }})</div>
             <input v-model="color" ref="giveitaname3">
             <button v-on:click="changeColour">Submit</button>
             <input v-model="fontSize" ref="giveitaname4">
