@@ -8,37 +8,37 @@
                 <blog-post title="My journey with Vue"></blog-post>
             </div>
                 <div id="app">
-                <ul v-if="todos.length">
-                    <li v-for="todo in todos">
-                    {{ todo }}
-                    </li>
-                </ul>
-                <button v-on:click="removeTodo">POP Todo</button>
-                <!-- The button blocks the else statement from connecting to the if statement. -->
-                <!-- <p v-else>No todos left!</p> -->
-                <hr>
-                <br>
-                <button @click="decrement">-</button>
-                {{ value * 10 }}
-                <button @click="increment">+</button>
-                <br>
-                <hr>
-                <br>
-                <div class="title">
-                    <blog-post title="Blogging with Vue"></blog-post>
+                    <ul v-if="todos.length">
+                        <li v-for="todo in todos">
+                        {{ todo }}
+                        </li>
+                    </ul>
+                    <button v-on:click="removeTodo">POP Todo</button>
+                    <!-- The button blocks the else statement from connecting to the if statement. -->
+                    <!-- <p v-else>No todos left!</p> -->
+                    <hr>
+                    <br>
+                    <button @click="decrement">-</button>
+                    {{ value * 10 }}
+                    <button @click="increment">+</button>
+                    <br>
+                    <hr>
+                    <br>
+                    <div class="title">
+                        <blog-post title="Blogging with Vue"></blog-post>
+                    </div>
+                    <!-- <p>Using mustaches: {{ rawHtml }}</p> -->
+                    <!-- <p>Using v-html directive: <span v-html="rawHtml"></span></p> -->
+                    <br>
+                    <p>Hello {{ username ? username : 'No username' }}</p>
+                    <br>
+                    <input type="text" v-model="username" placeholder="e.g. Name">
+                    <br>
+                    <button @click="submit">Submit</button>
+                    <div class="user" v-for="user in users">
+                        <p>Users: {{ user.username }}</p>
+                    </div>
                 </div>
-                <!-- <p>Using mustaches: {{ rawHtml }}</p> -->
-                <!-- <p>Using v-html directive: <span v-html="rawHtml"></span></p> -->
-                <br>
-                <p>Hello {{ username ? username : 'No username' }}</p>
-                <br>
-                <input type="text" v-model="username" placeholder="e.g. Name">
-                <br>
-                <button @click="submit">Submit</button>
-                <div class="user" v-for="user in users">
-                    <p>Users: {{ user.username }}</p>
-                </div>
-            </div>
             <div id="app2">
                 <span v-bind:title="message">
                     Hover your mouse over me for a few seconds to see my dynamically bound title!
@@ -63,7 +63,7 @@
             <div id="app5">
                 <ol>
                     <complex-component v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></complex-component>
-                </ol>
+                </ol> 
             </div>
             <div id="hello" v-bind:style="styleObject">Bonjour je ma'pelle Kamran.</div>
             <div v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">Bonjour je ma'pelle Kamran. This needs rework.</div>
@@ -187,6 +187,23 @@
         <div id="random">
             <random-number-generator></random-number-generator>
         </div>
+
+        <div id="vue-refs">
+            <h2>Referencing</h2>
+            <input type="text" ref="giveitaname">
+            <button v-on:click="readRefs">Submit</button>
+            <p>Your Favourite Cat: {{ output }} </p>
+            <div ref="giveitaname2">Inside a div</div>
+        </div>
+
+        <div id="stylinggg">
+            <input type="text" ref="giveitaname3">
+            <button v-on:click="changeColour">Submit</button>
+            <input type="text" ref="giveitaname4">
+            <button v-on:click="changeFont">Submit</button>
+            <div v-bind:style="styleObject">Styling with Vue</div>
+        </div>
+
         <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
         <script src="app.js"></script>
         <link href="style.css" rel="stylesheet">

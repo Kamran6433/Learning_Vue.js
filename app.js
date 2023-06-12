@@ -50,7 +50,7 @@ Vue.component('random-number-generator', {
     template: `
         <code><h2>Random Number Generator <br>
         <code>{{ randomNumber }}</code> <br>
-        <button v-on:click="generateNumber">Click me to generate a random number from 0 to {{ topValue }}</button>
+        <button v-on:click="generateNumber">Click me to generate a random number from 0 to {{ topValue - 1 }}</button>
         </h2><br>
         <input type="text" v-model="topValue" placeholder="top value">
         </code>
@@ -266,3 +266,37 @@ var check = new Vue({
         selected: ''
     }
 });
+
+// When you reference elements in Vue, you're able to access many of the elements methods and attributes to grab information about them.
+new Vue({
+    el: '#vue-refs',
+    data: {
+        output: 'my cat'
+    },
+    methods: {
+        readRefs: function() {
+            console.log(this.$refs);
+            this.output = this.$refs.giveitaname.value;
+        }
+    }
+});
+
+new Vue({
+    el: '#stylinggg',
+    data: {
+        styleObject: {
+            color: 'red',
+            fontSize: '20px'
+        }
+    },
+    methods: {
+        changeColour: function(event) {
+            console.log(this.styleObject.color);
+            this.styleObject.color.value = event;
+        },
+        changeFont: function(event) {
+            console.log(this.styleObject.fontSize);
+            this.styleObject.fontSize.value = event;
+        }
+    }
+})
