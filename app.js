@@ -285,18 +285,18 @@ new Vue({
     el: '#stylinggg',
     data: {
         styleObject: {
-            color: 'red',
+            color: 'green',
             fontSize: '20px'
         }
     },
     methods: {
-        changeColour: function(event) {
+        changeColour: function() {
+            this.styleObject.color = this.$refs.giveitaname3.value;
             console.log(this.styleObject.color);
-            this.styleObject.color.value = event;
         },
-        changeFont: function(event) {
+        changeFont: function() {
+            this.styleObject.fontSize =this.$refs.giveitaname4.value
             console.log(this.styleObject.fontSize);
-            this.styleObject.fontSize.value = event;
         }
     }
 })

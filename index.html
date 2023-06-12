@@ -197,11 +197,11 @@
         </div>
 
         <div id="stylinggg">
-            <input type="text" ref="giveitaname3">
+            <div v-bind:style="styleObject">Styling with Vue (You can change my colour and font size)</div>
+            <input v-model="color" ref="giveitaname3">
             <button v-on:click="changeColour">Submit</button>
-            <input type="text" ref="giveitaname4">
+            <input v-model="fontSize" ref="giveitaname4">
             <button v-on:click="changeFont">Submit</button>
-            <div v-bind:style="styleObject">Styling with Vue</div>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
